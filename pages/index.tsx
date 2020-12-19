@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import fetch from 'node-fetch';
 import styled from 'styled-components';
 import TestContainer from '../containers/testContainer';
-function Index(props){
+function Index(props:any){
   const {data} = props;
   return (
     <Layout title="Home">
@@ -18,7 +18,7 @@ function Index(props){
   )
 }
 
-export async function getStaticProps(context){
+export async function getStaticProps(){
   const res = await fetch(
     'https://dog.ceo/api/breeds/image/random'
   );

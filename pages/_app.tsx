@@ -1,4 +1,3 @@
-import App, {Container} from 'next/app';
 import { createGlobalStyle, ThemeProvider} from 'styled-components';
 import { Provider } from "mobx-react";
 import TestStore from '../store/testStore';
@@ -17,10 +16,8 @@ const theme = {
 }
 
 const store = new TestStore();
-export default class MyApp extends App{
-    render(){
-        const { Component, pageProps } = this.props;
-        return(
+const MyApp = ({Component, pageProps}:any) =>{
+    return(
         <>
         <Provider testStore={store}>
             <GlobalStyle />
@@ -29,6 +26,7 @@ export default class MyApp extends App{
                 </ThemeProvider>
         </Provider>
         </>
-    )
-    }
+    );
 }
+
+export default MyApp;

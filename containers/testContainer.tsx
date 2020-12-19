@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
-import TestStore from "../stores/testStore";
+import TestStore from "../store/testStore";
 
 interface Props {
-  counter: counterStore;
+  testStore?:TestStore;
 }
 
 @inject("testStore")
 @observer
 class TestContainer extends Component<Props, {}> {
+  private testStore = this.props.testStore as TestStore;
   render() {
-    const { testStore } = this.props;
+    
     return (
       <div>
-        {testStore.test}
+        {this.testStore.test}
       </div>
     );
   }
